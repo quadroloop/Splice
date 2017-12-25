@@ -8,6 +8,9 @@ Splice is a __hackable__ Browser-Based text editor written in HTML/CSS/JS and PH
   
 # Poject Status
     > Version 0.0 is under Developement
+    - File Saving through ajax is functional
+    - Directory Tree mapping is Functional
+    - UI Components Built
     > App website is under Developement
    
 
