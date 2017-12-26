@@ -390,7 +390,7 @@ $(document).ready( function() {
     
         $( cont ).addClass( 'wait' );
             
-        $.post( 'Foldertree.php', { dir: root }, function( data ) {
+        $.post( 'splice_dir_tree.php', { dir: root }, function( data ) {
     
             $( cont ).find( '.start' ).html( '' );
             $( cont ).removeClass( 'wait' ).append( data );
