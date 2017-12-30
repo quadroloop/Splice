@@ -251,6 +251,15 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
                 background-color:#181915;
      }         
 
+      #results {
+            position: relative;
+                width: 100%;
+                height: 80%;
+                overflow: hidden;
+                display: none;
+                background-color:#181915;
+     }         
+
     .top-bar {
          background-color:#272822;
     }
@@ -376,13 +385,25 @@ function loadfile() {
           <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-warning w3-text-grey"></i> DANGER ZONE!</a>
           <div class="w3-bar-item w3-button w3-small w3-hover-black" onclick="uninstall();"><a class="w3-red w3-round w3-text-white w3-btn">Uninstall</a></div>
 
+          <!--search results-->
+          <div id="results" class="w3-animate-left w3-small">
+              <ul id="thread" style="display: block;z-index: 1000;">
+              <?php
+$it = new RecursiveTreeIterator(new RecursiveDirectoryIterator("./", RecursiveDirectoryIterator::SKIP_DOTS));
+foreach($it as $path) {
+  echo "<li class='w3-text-white'><a name=".$path." onclick='alert(this.name)'>".$path."</a></li>";
+}
+?>
+              </ul>
+          </div>
+
 
       </div> 
              <!--dock-->  
                 <div class="w3-bar bottom-bar dark-border-top" style="bottom:0px;">
                    <a class="w3-bar-item w3-btn" onclick="upload();"><i class="fa fa-upload w3-text-white"></i></a>
                    <a class="w3-bar-item w3-btn" onclick="filemanager();" title="Open File manager"><i class="fa fa-folder w3-text-white" id="f-icon"></i></a>
-                   <a class=""><input class="w3-small dark-border w3-round search" id="delta" type="text" placeholder="File Search.." title="Search a file.."></a>
+                   <a class=""><input class="w3-small dark-border w3-round search" id="delta" type="text" placeholder="File Search.." title="Search a file.." onkeyup="search_file();"></a>
                </div>
             </div>
             <!--right panel-->
@@ -524,6 +545,34 @@ function uninstall_options() {
   }
 })
 }
+
+// file search
+function search_file() {
+     var input, filter, ul, li, a, i;
+        input = document.getElementById("delta"); 
+    var threader = document.getElementById("results");
+    if(input.value == [ ] ) {
+       document.getElementById(capp).style.display = "block";
+      threader.style.display = "none";
+    }else{
+       document.getElementById(capp).style.display = "none";
+      threader.style.display = "block";
+    }
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("thread");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+
+        }
+    }
+
+}
+
 
 // URL Parameter Tester
 var urx = document.getElementById("url");
