@@ -42,6 +42,11 @@ file_put_contents("splice_dir_mapper.php",$tree_base_code);
    $filename = $_POST['filename'];
   file_put_contents($filename,$file_contents); 
  }
+
+ // loading a file
+ if(isset($_GET['file_edit'])) {
+
+ }
 ?>
 <!DOCTYPE html>
 <html>
@@ -280,6 +285,12 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
     border:1px solid #3A3A3A!important;
  }
 
+ #delta {
+   width: 100% !important;
+   max-width: 350px;
+   margin: 5px;
+   float: left;
+ }
         </style>
         <script>
             $(function() {
@@ -290,7 +301,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
     <body>
     <!--code holder-->
     <textarea id="code_holder">
-      <?php $file_main = file_get_contents($init_file); echo $file_main; ?>
+      <?php readfile($init_file);?>
     </textarea>
          <!--editor panel-->   
         <div class="split-pane fixed-left" style="display:block;" id="editor_panel">
@@ -324,7 +335,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
                  </div>
           <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-terminal w3-text-grey"></i> CODE &amp; EDITOR</a> 
           <a href="#" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-plus w3-text-blue"></i> New File</a>
-          <a href="#" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-file-text-o w3-text-blue"></i> Open File</a>
+          <a href="#" class="w3-bar-item w3-button w3-text-grey" onclick="upload();"><i class="fa fa-file-text-o w3-text-blue"></i> Open File</a>
           <a onclick="filemanager();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-folder w3-text-amber"></i> File Manager</a>
           <a class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-circle w3-text-pink"></i> MINIFY Code</a>
           <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-user-times w3-text-blue"></i> Log Out</a>
@@ -357,11 +368,10 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
                 <div class="w3-bar bottom-bar dark-border-top" style="bottom:0px;">
                    <a class="w3-bar-item w3-btn" onclick="upload();"><i class="fa fa-upload w3-text-white"></i></a>
                    <a class="w3-bar-item w3-btn" onclick="filemanager();" title="Open File manager"><i class="fa fa-folder w3-text-white" id="f-icon"></i></a>
-                   <a class="w3-bar-item"><input class="w3-small dark-border w3-round search" type="text" placeholder="File Search.." title="Search a file.."></a>
-                   <a class="w3-bar-item"><i class="fa fa-indent"></i></a>
-                   <a class="w3-bar-item"><input class="w3-small dark-border w3-round search" type="text" placeholder="File Here.." title="type file path and name then press enter to load it to editor.."></a>
+                   <a class=""><input class="w3-small dark-border w3-round search" id="delta" type="text" placeholder="File Search.." title="Search a file.."></a>
                </div>
             </div>
+            <!--right panel-->
             <div class="split-pane-divider" id="divider"></div>
             <div class="split-pane-component" id="right-component">
               <iframe id="frame_data" src="<?php echo $init_file; ?>" style="width:100%;height:100%;border:0"></iframe>
@@ -371,6 +381,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
         <div style="display: none">
            <input type="file" id="file_holder">
         </div>
+
 
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ace.js" type="text/javascript" charset="utf-8"></script>
@@ -800,7 +811,7 @@ function upload() {
 function upload_process()
 {
     var fileToLoad = document.getElementById("file_holder").files[0];
-    alert(fileToLoad);
+    alert(document.getElementById("file_holder").value);
     var fileReader = new FileReader();
     fileReader.onload = function(fileLoadedEvent)
     {

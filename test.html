@@ -5,12 +5,13 @@
     </head>
       <script>
           function loader() {
-          $( "#result" ).load( "https://quadroloop.github.io/Verbose/css/verbose-style.css", function() {
+          $( "#result" ).load( "./test.html", function() {
   alert( "Load was performed." );
 });
           }
       </script>
     <body>
+    <h1>Doger Data</h1>
         <button onclick="loader();" style="float:right">Load!</button>
         <textarea id="result" style="width:500px;height:500px;"></textarea>
     </body>
