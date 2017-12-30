@@ -305,11 +305,19 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
                 <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-map-o w3-text-grey"></i> MENU</a>
                 <a id="selected_file" class="w3-text-blue w3-bar-item w3-small"></a>
                  </div>
+          <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-terminal w3-text-grey"></i> CODE &amp; EDITOR</a> 
           <a href="#" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-plus w3-text-blue"></i> New File</a>
           <a href="#" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-file-text-o w3-text-blue"></i> Open File</a>
           <a onclick="filemanager();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-folder w3-text-amber"></i> File Manager</a>
           <a class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-circle w3-text-pink"></i> MINIFY Code</a>
           <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-user-times w3-text-blue"></i> Log Out</a>
+          <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-wrench w3-text-grey"></i> TOOLS</a>
+          <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-cube w3-text-blue"></i> JS Console</a>
+          <a class="w3-bar-item"><input class="w3-small dark-border w3-round search" type="text" placeholder="URL Parameters.." title="Input URL test parameters here, and press enter to test it."></a>
+
+
+
+
       </div> 
               <!--setting-->
               <div id="settings" class="w3-animate-left w3-small w3-bar-block">
