@@ -355,7 +355,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
       </div> 
              <!--dock-->  
                 <div class="w3-bar bottom-bar dark-border-top" style="bottom:0px;">
-                   <a class="w3-bar-item w3-btn"><i class="fa fa-upload w3-text-white"></i></a>
+                   <a class="w3-bar-item w3-btn" onclick="upload();"><i class="fa fa-upload w3-text-white"></i></a>
                    <a class="w3-bar-item w3-btn" onclick="filemanager();" title="Open File manager"><i class="fa fa-folder w3-text-white" id="f-icon"></i></a>
                    <a class="w3-bar-item"><input class="w3-small dark-border w3-round search" type="text" placeholder="File Search.." title="Search a file.."></a>
                    <a class="w3-bar-item"><i class="fa fa-indent"></i></a>
@@ -367,6 +367,11 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
               <iframe id="frame_data" src="<?php echo $init_file; ?>" style="width:100%;height:100%;border:0"></iframe>
             </div>
         </div>
+        <!--Data Elements-->
+        <div style="display: none">
+           <input type="file" id="file_holder">
+        </div>
+
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
@@ -495,7 +500,7 @@ function uninstall_options() {
 
 function savefile() {
    var file_name_to_save = document.getElementById("cfile").value;
-   if(file_name_to_save == [ ]){}else{
+   if(file_name_to_save == [ ]){swal('Error!','No file name!','error')}else{
 	 var http = new XMLHttpRequest();
     http.open("POST", "splice.php", true);
     http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -773,6 +778,66 @@ swal({
 })
  // end option processing
 }
+
+// File functions
+
+function file_chk() {
+  if ( file_holder.value == [ ] ){
+    setTimeout("file_chk();",200)
+  }else{
+    // do nothing
+    setTimeout("upload_process();",200);
+   }
+}
+
+function upload() {
+  var file_holder = document.getElementById("file_holder");
+  file_holder.value = "";
+  file_holder.click();
+  file_chk();
+}
+
+function upload_process()
+{
+    var fileToLoad = document.getElementById("file_holder").files[0];
+    alert(fileToLoad);
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent)
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        editor.setValue(textFromFileLoaded);
+        uploaded = 1;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+
+
+function save() {
+    var editor = ace.edit("editor");  
+    var script = editor.getValue();
+    var textToSave = script;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = "crest.file";
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+  }
+
+  // destroy clicked element for file.js
+  function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+
 
 </script>
 </html>

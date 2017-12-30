@@ -1,1 +1,17 @@
-Test ahhahahah
+<html>
+    <head>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+
+    </head>
+      <script>
+          function loader() {
+          $( "#result" ).load( "https://quadroloop.github.io/Verbose/css/verbose-style.css", function() {
+  alert( "Load was performed." );
+});
+          }
+      </script>
+    <body>
+        <button onclick="loader();" style="float:right">Load!</button>
+        <textarea id="result" style="width:500px;height:500px;"></textarea>
+    </body>
+</html>
