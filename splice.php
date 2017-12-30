@@ -384,21 +384,20 @@ function loadfile() {
           <a href="https://github.com/quadroloop/Splice" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-github w3-text-white github-icon"></i> View or Fork on Github</a>
           <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-warning w3-text-grey"></i> DANGER ZONE!</a>
           <div class="w3-bar-item w3-button w3-small w3-hover-black" onclick="uninstall();"><a class="w3-red w3-round w3-text-white w3-btn">Uninstall</a></div>
+      </div> 
 
-          <!--search results-->
+        <!--search results-->
           <div id="results" class="w3-animate-left w3-small">
               <ul id="thread" style="display: block;z-index: 1000;">
               <?php
 $it = new RecursiveTreeIterator(new RecursiveDirectoryIterator("./", RecursiveDirectoryIterator::SKIP_DOTS));
 foreach($it as $path) {
-  echo "<li class='w3-text-white'><a name=".$path." onclick='alert(this.name)'>".$path."</a></li>";
+  echo '<li class="w3-text-blue"><a>'.$path.'</a></li>';
 }
 ?>
               </ul>
           </div>
 
-
-      </div> 
              <!--dock-->  
                 <div class="w3-bar bottom-bar dark-border-top" style="bottom:0px;">
                    <a class="w3-bar-item w3-btn" onclick="upload();"><i class="fa fa-upload w3-text-white"></i></a>
