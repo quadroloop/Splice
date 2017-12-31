@@ -287,7 +287,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
    display: none;
  }
 
- #current_file {
+ .current_file {
     font-size: 13px;
     margin: 10px !important;
     padding: 3px;
@@ -319,6 +319,17 @@ function loadfile() {
      });
     code_editor(); 
 }
+
+            // loading a file from searched tree.
+function loadfile_search() {
+  var file_path = document.getElementById("sfile").innerHTML;
+  var fname = document.getElementById("cfile").value = file_path;
+     $( "#code_base" ).load("splice.php?file_edit="+encodeURIComponent(file_path), function() {
+         var data = document.getElementById("code_base").value;
+         editor.setValue(data,-1);
+     });
+    code_editor(); 
+}
         </script>
     </head>
     <body>
@@ -345,7 +356,7 @@ function loadfile() {
              <div id="file_manager">
                  <div class="w3-bar w3-small w3-text-grey dark-border-bottom">
                 <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-map w3-text-grey"></i> FILE MANAGER</a>
-                <div id="current_file"><a id="selected_file"></a></div>
+                <div class="current_file"><a id="selected_file"></a></div>
                  <a class="dark-border w3-round w3-padding-small w3-text-white w3-indigo w3-btn tool_state" onclick="loadfile();"><i class="fa fa-upload w3-text-white"></i> Load File</a>
                  </div>
                  <div id="container" class="w3-text-grey w3-small"> </div>
@@ -374,7 +385,6 @@ function loadfile() {
               <div id="settings" class="w3-animate-left w3-small w3-bar-block">
                 <div class="w3-bar w3-small w3-text-grey dark-border-bottom">
                 <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-gear w3-text-grey"></i> SETTINGS</a>
-
                  </div>
           <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-code-fork w3-text-blue"></i> View Source Logs</a>
           <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-terminal w3-text-grey"></i> CODE &amp; EDITOR</a>
@@ -388,6 +398,11 @@ function loadfile() {
 
         <!--search results-->
           <div id="results" class="w3-animate-left w3-small">
+          <div class="w3-bar dark-border-bottom">
+           <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-sitemap w3-text-grey"></i> FILE SEARCH</a>
+            <div class="current_file w3-text-grey"><a id="sfile"></a></div>
+                 <a class="dark-border w3-round w3-padding-small w3-text-white w3-indigo w3-btn tool_state" onclick="loadfile_search();"><i class="fa fa-upload w3-text-white"></i> Load File</a>
+           </div>
               <ul id="thread" style="display: block;z-index: 1000;">
               <?php
 $it = new RecursiveTreeIterator(new RecursiveDirectoryIterator("./", RecursiveDirectoryIterator::SKIP_DOTS));
@@ -395,6 +410,7 @@ foreach($it as $path) {
   echo '<li class="w3-text-blue w3-hover-black" style="cursor:pointer" onclick="fsnippet=this.innerHTML;file_bind();"><a>'.$path.'</a></li>';
 }
 ?>
+         <li id="no_matches"><a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-warning w3-text-amber"></i> END OF RESULTS</a></li>
               </ul>
           </div>
 
@@ -550,6 +566,7 @@ function search_file() {
      var input, filter, ul, li, a, i;
         input = document.getElementById("delta"); 
     var threader = document.getElementById("results");
+    var endres = document.getElementById("no_matches");
     if(input.value == [ ] ) {
        document.getElementById(capp).style.display = "block";
       threader.style.display = "none";
@@ -564,9 +581,10 @@ function search_file() {
         a = li[i].getElementsByTagName("a")[0];
         if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
             li[i].style.display = "";
+          endres.style.display = "";
         } else {
             li[i].style.display = "none";
-
+           endres.style.display = "block"
         }
     }
 
@@ -574,7 +592,10 @@ function search_file() {
 
  // process searched file
 function file_bind() {
-  alert(fsnippet);
+  var s1 = fsnippet.replace("<a>","");
+  var s2 = s1.replace("</a>","");
+  var path_file = s2.split("-");
+  document.getElementById("sfile").innerHTML = path_file[1];
 }
 
 
