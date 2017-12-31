@@ -335,7 +335,7 @@ function loadfile_search() {
     <body>
     <!--code holder-->
     <textarea id="code_holder">
-      <?php readfile($init_file);?>
+      <?php @readfile($init_file);?>
     </textarea>
          <!--editor panel-->   
         <div class="split-pane fixed-left" style="display:block;" id="editor_panel">
@@ -368,8 +368,8 @@ function loadfile_search() {
                 <a id="selected_file" class="w3-text-blue w3-bar-item w3-small"></a>
                  </div>
           <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-terminal w3-text-grey"></i> CODE &amp; EDITOR</a> 
-          <a href="#" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-plus w3-text-blue"></i> New File</a>
-          <a href="#" class="w3-bar-item w3-button w3-text-grey" onclick="upload();"><i class="fa fa-file-text-o w3-text-blue"></i> Open File</a>
+          <a onclick="new_file();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-plus w3-text-blue"></i> New File</a>
+          <a onclick="upload();" class="w3-bar-item w3-button w3-text-grey" onclick="upload();"><i class="fa fa-file-text-o w3-text-blue"></i> Open File</a>
           <a onclick="filemanager();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-folder w3-text-amber"></i> File Manager</a>
           <a class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-circle w3-text-pink"></i> MINIFY Code</a>
           <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-user-times w3-text-blue"></i> Log Out</a>
@@ -590,6 +590,32 @@ function search_file() {
 
 }
 
+// new file
+function new_file() {
+  swal.setDefaults({
+  input: 'text',
+  confirmButtonText: 'Next &rarr;',
+  showCancelButton: true,
+  progressSteps: ['#']
+})
+
+var steps = [
+  {
+    title: 'New file!',
+    text: 'Enter a file name to continue'
+  },
+]
+
+swal.queue(steps).then((result) => {
+  swal.resetDefaults()
+
+  if (result.value) {
+   document.getElementById("cfile").value = result.value;
+   code_editor();
+  } // file name bind function..
+})
+}
+
  // process searched file
 function file_bind() {
   var s1 = fsnippet.replace("<a>","");
@@ -622,7 +648,7 @@ function savefile() {
 	 var http = new XMLHttpRequest();
     http.open("POST", "splice.php", true);
     http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    var file = "filename="+file_name_to_save+"&file_content="+editor.getValue();
+    var file = "filename="+file_name_to_save+"&file_content="+encodeURIComponent(editor.getValue());
     http.send(file);
   }
 }
