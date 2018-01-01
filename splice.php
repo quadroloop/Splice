@@ -9,19 +9,12 @@
 |#|      |_|                  |#| By Bryce Mercines 2017 | github.com/quadroloop |#|
 ====================================================================================
 */
-/*
- Folder Tree with PHP and jQuery.
-
- R. Savoul Pelister
- http://techlister.com
-
-*/
    //init (file heirarchy)
   if(file_exists('index.html')){$init_file="index.html";}else if (file_exists('index.php')){$init_file="index.php";}else if (file_exists('index.js')){$init_file="index.js";}
   
   // init generate file tree mapper file in case it doesnt exist;
   if(!file_exists('splice_dir_mapper.php')){
-$tree_base_code =  "#lt#?php class treeview {private #var#files#semi#private #var#folder#semi#function __construct( #var#path ) {#var#files = array()#semi#if( file_exists( #var#path)) {if( #var#path[ strlen( #var#path ) - 1 ] == #apos#/#apos# )#var#this-#gt#folder = #var#path#semi#else#var#this-#gt#folder = #var#path . #apos#/#apos##semi##var#this-#gt#dir = opendir( #var#path )#semi#while(( #var#file = readdir( #var#this-#gt#dir ) ) != false )#var#this-#gt#files[] = #var#file#semi#closedir( #var#this-#gt#dir )#semi#}}function create_tree( ) {if( count( #var#this-#gt#files ) #gt# 2 ) {natcasesort( #var#this-#gt#files )#semi##var#list = #apos##lt#ul class=#quot#filetree#quot# style=#quot#display: none#semi##quot##gt##apos##semi#foreach( #var#this-#gt#files as #var#file ) {if( file_exists( #var#this-#gt#folder . #var#file ) && #var#file != #apos#.#apos# && #var#file != #apos#..#apos# && is_dir( #var#this-#gt#folder . #var#file )) {#var#list .= #apos##lt#li class=#quot#folder collapsed#quot##gt##lt#a href=#quot###quot# rel=#quot##apos# . htmlentities( #var#this-#gt#folder . #var#file ) . #apos#/#quot##gt##apos# . htmlentities( #var#file ) . #apos##lt#/a#gt##lt#/li#gt##apos##semi#}}foreach( #var#this-#gt#files as #var#file ) {if( file_exists( #var#this-#gt#folder . #var#file ) && #var#file != #apos#.#apos# && #var#file != #apos#..#apos# && !is_dir( #var#this-#gt#folder . #var#file )) {#var#ext = preg_replace(#apos#/^.*\./#apos#, #apos##apos#, #var#file)#semi##var#list .= #apos##lt#li class=#quot#file ext_#apos# . #var#ext . #apos##quot##gt##lt#a href=#quot###quot# rel=#quot##apos# . htmlentities( #var#this-#gt#folder . #var#file ) . #apos##quot##gt##apos# . htmlentities( #var#file ) . #apos##lt#/a#gt##lt#/li#gt##apos##semi#}}#var#list .= #apos##lt#/ul#gt##apos##semi#return #var#list#semi#}}}#var#path = urldecode( #var#_REQUEST[#apos#dir#apos#] )#semi##var#tree = new treeview( #var#path )#semi#echo #var#tree-#gt#create_tree()#semi#?#gt#";
+$tree_base_code =  "#lt#?php class treeview {private #var#files#semi#private #var#folder#semi#function __construct( #var#path ) {#var#files = array()#semi#if( file_exists( #var#path)) {if( #var#path[ strlen( #var#path ) - 1 ] == #apos#/#apos# )#var#this-#gt#folder = #var#path#semi#else#var#this-#gt#folder = #var#path . #apos#/#apos##semi##var#this-#gt#dir = opendir( #var#path )#semi#while(( #var#file = readdir( #var#this-#gt#dir ) ) != false )#var#this-#gt#files[] = #var#file#semi#closedir( #var#this-#gt#dir )#semi#}}function create_tree( ) {if( count( #var#this-#gt#files ) #gt# 2 ) {natcasesort( #var#this-#gt#files )#semi##var#list = #apos##lt#ul class=#quot#filetree#quot# style=#quot#display: none#semi##quot##gt##apos##semi#foreach( #var#this-#gt#files as #var#file ) {if( file_exists( #var#this-#gt#folder . #var#file ) && #var#file != #apos#.#apos# && #var#file != #apos#..#apos# && is_dir( #var#this-#gt#folder . #var#file )) {#var#list .= #apos##lt#li class=#quot#folder collapsed#quot##gt##lt#a href=#quot###quot# rel=#quot##apos# . htmlentities( #var#this-#gt#folder . #var#file ) . #apos#/#quot##gt##apos# . htmlentities( #var#file ) . #apos##lt#/a#gt##lt#/li#gt##apos##semi#}}foreach( #var#this-#gt#files as #var#file ) {if( file_exists( #var#this-#gt#folder . #var#file ) && #var#file != #apos#.#apos# && #var#file != #apos#..#apos# && !is_dir( #var#this-#gt#folder . #var#file )) {#var#ext = preg_replace(#apos#/^.*\./#apos#, #apos##apos#, #var#file)#semi##var#list .= #apos##lt#li class=#quot#file ext#quot##gt##lt#a href=#quot###quot# rel=#quot##apos# . htmlentities( #var#this-#gt#folder . #var#file ) . #apos##quot##gt##apos# . htmlentities( #var#file ) . #apos##lt#/a#gt##lt#/li#gt##apos##semi#}}#var#list .= #apos##lt#/ul#gt##apos##semi#return #var#list#semi#}}}#var#path = urldecode( #var#_REQUEST[#apos#dir#apos#] )#semi##var#tree = new treeview( #var#path )#semi#echo #var#tree-#gt#create_tree()#semi#?#gt#";
 $tree_base_code = str_replace("#var#","$",$tree_base_code);
 $tree_base_code = str_replace("#lt#","<",$tree_base_code);
 $tree_base_code = str_replace("#gt#",">",$tree_base_code);
@@ -66,14 +59,10 @@ file_put_contents("splice_dir_mapper.php",$tree_base_code);
         <style type="text/css">
 
         /*!
-
 Split Pane v0.9.4
-
 Copyright (c) 2014 - 2016 Simon Hagström
-
 Released under the MIT license
 https://raw.github.com/shagstrom/split-pane/master/LICENSE
-
 */
 .split-pane {
     position: relative;
@@ -297,11 +286,11 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
  }
 
  #delta {
-   width: 100% !important;
-   max-width: 350px;
    margin: 5px;
    float: left;
  }
+
+
         </style>
         <script>
             $(function() {
@@ -313,6 +302,7 @@ function loadfile() {
   var file_path = document.getElementById("selected_file").innerHTML;
   var abs_path = file_path.replace("File:  ","");
   var fname = document.getElementById("cfile").value = abs_path;
+  catch_mode();
      $( "#code_base" ).load("splice.php?file_edit="+encodeURIComponent(abs_path), function() {
          var data = document.getElementById("code_base").value;
          editor.setValue(data,-1);
@@ -324,6 +314,7 @@ function loadfile() {
 function loadfile_search() {
   var file_path = document.getElementById("sfile").innerHTML;
   var fname = document.getElementById("cfile").value = file_path;
+  catch_mode();
      $( "#code_base" ).load("splice.php?file_edit="+encodeURIComponent(file_path), function() {
          var data = document.getElementById("code_base").value;
          editor.setValue(data,-1);
@@ -371,7 +362,7 @@ function loadfile_search() {
           <a onclick="new_file();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-plus w3-text-blue"></i> New File</a>
           <a onclick="upload();" class="w3-bar-item w3-button w3-text-grey" onclick="upload();"><i class="fa fa-file-text-o w3-text-blue"></i> Open File</a>
           <a onclick="filemanager();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-folder w3-text-amber"></i> File Manager</a>
-          <a class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-circle w3-text-pink"></i> MINIFY Code</a>
+          <a onclick="minify();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-circle w3-text-pink"></i> MINIFY Code</a>
           <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-user-times w3-text-blue"></i> Log Out</a>
           <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-wrench w3-text-grey"></i> TOOLS</a>
           <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-cube w3-text-blue"></i> JS Console</a>
@@ -616,6 +607,32 @@ swal.queue(steps).then((result) => {
 })
 }
 
+  // change editor mode depending to file type:
+function catch_mode() {
+   var path = document.getElementById("cfile").value;
+   var web_iterate = path.split(".");
+   var file_ext = web_iterate.slice(-1)[0].toUpperCase();;
+   var langs = {PHP:"php",JS:"javascript",HTML:"html",CSS:"css"};
+    // reconfigure ace editor
+ editor.setOptions({
+   useWrapMode: true,
+   highlightActiveLine: true,
+   showPrintMargin: false,
+   mode: 'ace/mode/'+ langs[file_ext]
+})
+
+}
+
+// Minify code! 
+function minify() {
+  var code = editor.getValue();
+  var x1 = code.split("\n");
+  var x2 = x1.join("");
+  var x3 = x2.replace(/\s+/g,' ').trim();
+  editor.setValue(x3,-1);
+  code_editor();
+}
+
  // process searched file
 function file_bind() {
   var s1 = fsnippet.replace("<a>","");
@@ -651,12 +668,24 @@ function savefile() {
     http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     var file = "filename="+file_name_to_save+"&file_content="+encodeURIComponent(editor.getValue());
     http.send(file);
+    swal({
+      timer: 900,
+      type: 'success',
+      showConfirmButton: false,
+      title: 'Success!',
+      text: 'your file is saved successfully!'
+    });
   }
 }
 
 function refresh_output() {
      var file_name_to_save = document.getElementById("cfile").value;
-      document.getElementById("frame_data").src=file_name_to_save;
+     var web_iterate = file_name_to_save.split(".");
+     var file_item = web_iterate.slice(-1)[0];
+     var allowed_src = ["html","php"];
+     if(allowed_src.indexOf(file_item) > -1) { 
+     document.getElementById("frame_data").src=file_name_to_save;
+   }
 }
 /*file script tree*/
 $(document).ready( function() {

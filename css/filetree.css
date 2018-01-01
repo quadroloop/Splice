@@ -36,251 +36,29 @@ UL.filetree A:hover
 /*folder styles*/
 .filetree LI.folder
 {
-  background: url(images/open.png) no-repeat left top;
+	    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMTM0A1t6AAAAZElEQVQ4T2OgCOTn/1cozv2nBcOF6f+koVKEQX7O378Fuf//w3B+zr9vubm/LKDS+AGyRiQDXhbm/QsEYi9cOD/rnx1WzcTiUc0k4gHV/O8PNgnC+N8fjLRNLAbpgyZScgADAwAFpd6LN3O5AQAAAABJRU5ErkJggg==);
+        background-repeat: no-repeat;
+	background-position: left top; 
 }
 .filetree LI.expanded
 {
-	background: url(images/folder.png) no-repeat left top;
+     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAALEQAACxEBf2RfkQAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMzQDW3oAAAFJSURBVDhPndO/SsNQFAbw46KCoOIDOBQfQBBcnXwBQXEVnOJNcxFLiCBJHEQUJweHUvAPolWKVJSCTg7iaxQKDrbQwZIEm3uO54J20BCaXvjBgZzvCzcQACIoEI24RJO/nA6OF5o4Cv0c77M77Qdo+BHVekJ88AN16AXxvNtVunTsL5toeJloSBfMcUFxNyLqCVFxSZ1d+hEecOnef7jqhZiDnXq84H6oktemViZNPHcbahHsm3jJeVbF7Td6zcJ5UiW7HK+AlFiRm9iRWxRlojMS70AKfJQm0UAE1nRBNfFhPwTegyXwlqnEhTSc4VwF8hvqgococSkFZ74soa51wSkPQdJSGs6E7IyvoI65rZW0lIYzbc6e6G+wzxpJS2k4886O+Aq4xsOVJeglGyznTVwHw6AJ06CcZdBsFvziGdPEqZ9/ctAD8A1tUYBdUbvVXwAAAABJRU5ErkJggg==);
+     background-repeat: no-repeat;
+	background-position: left top; 
 }
-.filetree LI.file
-{
-	background: url(images/file.png) no-repeat left top;
-}
+
 .filetree LI.wait
 {
 	background: url(images/spinner.gif) no-repeat left top;
 }
-/*extensions and mime types*/
-.filetree LI.ext_3gp
-{
-	background: url(images/file.png) no-repeat left top;
+
+.ext{
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMTM0A1t6AAAA2UlEQVQ4T2OAAeewf6bO4X+3uoT/240NO4X9S4cqxQ5Aml3D/lnbR/4XQcdAA8qBFnx0Cf+TA1WOCUC2gBRDuSgAKJcDxCVAQ3biNISQAc7h/1dBDfmI1Tv4DHAL+acCMgSKy0FqoVIIgM8AZAANE9wG1P//z9L66Z8oNgySI2hA8/d/bk0//u3Bhhu//3MlaACUixMQ4wJloE1Z2DBIjvYGQLk4AUEDGr/9swbathkrBsoRNAAYVUxAzIMDM+E0AF9mQsYgNSC1UG0IQCg7wzBIDUgtRBcDAwB8ek9Q1lZCqQAAAABJRU5ErkJggg==);
+	background-repeat: no-repeat;
+	background-position: left top; 
 }
-.filetree LI.ext_afp
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_afpa
-{ background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_asp
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_aspx
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_avi
-{
-	 background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_bat
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_bmp
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_c
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_cfm
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_cgi
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_com
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_cpp
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_css
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_doc
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_exe
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_gif
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_fla
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_h
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_htm
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_html
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_jar
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_jpg
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_jpeg
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_js
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_lasso
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_log
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_m4p
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_mov
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_mp3
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_mp4
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_mpg
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_mpeg
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_ogg
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_pcx
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_pdf
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_php
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_png
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_ppt
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_psd
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_pl
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_py
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_rb
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_rbx
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_rhtml
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_rpm
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_ruby
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_sql
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_swf
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_tif
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_tiff
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_txt
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_vb
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_wav
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_wmv
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_xls
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_xml
-{
-	background: url(images/file.png) no-repeat left top;
-}
-.filetree LI.ext_zip
-{
-	background: url(images/folder.png) no-repeat left top;
+
+
 }
 .filetree UL
 {
@@ -289,7 +67,7 @@ UL.filetree A:hover
 }
 .filetree LI UL LI:before
 {
-	margin-left: -40px;
+	margin-left: -33px;
 	content: "\2014";
 	position: absolute;
 }
