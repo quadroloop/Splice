@@ -203,9 +203,15 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
       }
       #divider {
         left: 50%; /* Same as left component width */
-        width: 120px;
-        background-color: transparent;
+        width: 30px;
+        background-color: transparent; 
+        transition: 0.6s;
       }
+
+       #divider:hover {
+       background-color: rgba(8, 125, 149, 0.54);
+       }
+
       #right-component {
         left: 50%;  /* Same as left component width */
         height: 100%;
@@ -1111,6 +1117,12 @@ function save() {
     document.body.removeChild(event.target);
 }
 
+
+// window close
+
+window.addEventListener('beforeunload', function(event) {
+  alert("fuck cuz i can!");
+}, false);
 
 </script>
 </html>
