@@ -42,6 +42,15 @@ file_put_contents("splice_dir_mapper.php",$tree_base_code);
     exit();
  }
 
+ // deleting a file
+ if(isset($_POST["delete"])) {
+  if(!empty($_POST["delete"])){
+  $fdelete = $_POST["delete"];
+   unlink($fdelete);
+ }
+   exit();
+ }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -188,17 +197,17 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
         background: #aaa;
       }
       #left-component {
-        width: 20em;
+        width: 50%;
         height: 100%;
         background-color:#272822;
       }
       #divider {
-        left: 20em; /* Same as left component width */
+        left: 50%; /* Same as left component width */
         width: 120px;
         background-color: transparent;
       }
       #right-component {
-        left: 20em;  /* Same as left component width */
+        left: 50%;  /* Same as left component width */
         height: 100%;
         overflow: hidden;
       }
@@ -359,8 +368,12 @@ function loadfile_search() {
              <div id="file_manager">
                  <div class="w3-bar w3-small w3-text-grey dark-border-bottom">
                 <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-map w3-text-grey"></i> FILE MANAGER</a>
-                <div class="current_file"><a id="selected_file"></a></div>
+                <div title="Looad a file" class="current_file"><a id="selected_file"></a></div>
                  <a class="dark-border w3-round w3-padding-small w3-text-white w3-indigo w3-btn tool_state" onclick="loadfile();"><i class="fa fa-upload w3-text-white"></i> Load File</a>
+                 <a title="Delete Selected file." class="dark-border w3-round w3-padding-small w3-text-white w3-red w3-btn tool_state" onclick="delete_file();"><i class="fa fa-trash w3-text-white"></i> Delete</a>
+                 <a title="Add Folder" class="dark-border w3-round w3-padding-small w3-text-white w3-blue w3-btn tool_state" onclick="add_fm();"><i class="fa fa-plus w3-text-white"></i></a>
+
+
                  </div>
                  <div id="container" class="w3-text-grey w3-small"> </div>
                </div>    
@@ -376,7 +389,7 @@ function loadfile_search() {
           <a onclick="filemanager();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-folder w3-text-amber"></i> File Manager</a>
           <a onclick="minify();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-circle w3-text-pink"></i> MINIFY Code</a>
           <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-wrench w3-text-grey"></i> TOOLS</a>
-          <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-cube w3-text-blue"></i> JS Console</a>
+          <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-sitemap w3-text-blue"></i> Test URL Parameters</a>
           <a class="w3-bar-item"><input class="w3-small dark-border w3-round search" id="url" type="text" placeholder="URL Parameters.." title="Input URL test parameters here, and press enter to test it."></a>
 
 
@@ -512,7 +525,8 @@ function menu() {
 }
 
 function close_editor() {
-   document.getElementsByClassName("code-editor-left")[0].style.display = "none";
+  ui_count = 1;
+  ui_switch();
 }
 
 function uninstall() {
@@ -672,7 +686,7 @@ var urx = document.getElementById("url");
         }else{
        var y =document.getElementById("cfile").value;   
        var x = document.getElementById("frame_data");
-       x.src = "?"+y+urx.value;
+       x.src = y+"?"+urx.value;
     }
       }
     });
@@ -706,12 +720,47 @@ function ui_switch() {
   }
 }
 
+// output control
+/*
+var save_status = 0;
+localStorage.setItem('save_data',save_status);
+*/
+
+function delete_file() {
+
+ var file_path = document.getElementById("selected_file").innerHTML;
+  var abs_path = file_path.replace("File:  ","");
+  if(abs_path == [ ]) {
+    swal({
+      type: 'error',
+      showConfirmButton: false,
+      timer: 1000,
+      title: "Error",
+      text: "No file selected!"
+
+    })
+  }else{
+ var http = new XMLHttpRequest();
+    http.open("POST", "splice.php", true);
+    http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    var delf = "delete="+abs_path;
+    http.send(delf);
+     swal({
+      type: 'success',
+      showConfirmButton: false,
+      timer: 1000,
+      title: "Success",
+      text: "you have deleted a file"
+
+    })
+ }
+}
 
 // Saving a file
 
 function savefile() {
    var file_name_to_save = document.getElementById("cfile").value;
-   if(file_name_to_save == [ ]){swal('Error!','No file name!','error')}else{
+   if(file_name_to_save == [ ]){swal({timer: 900, showConfirmButton: false, title:'Error!',text:'No file name!',type:'error'})}else{
 	 var http = new XMLHttpRequest();
     http.open("POST", "splice.php", true);
     http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -733,6 +782,8 @@ function refresh_output() {
      var file_item = web_iterate.slice(-1)[0];
      var allowed_src = ["html","php"];
      if(allowed_src.indexOf(file_item) > -1) { 
+      document.getElementById("splash").style.display = "none";
+      document.getElementById("frame_data").style.display = "block";
      document.getElementById("frame_data").src=file_name_to_save;
    }
 }
