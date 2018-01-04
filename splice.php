@@ -304,6 +304,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
  #delta {
    margin: 5px;
    float: left;
+   width: 350px;
  }
 
  #splash {
@@ -436,10 +437,10 @@ foreach($it as $path) {
           </div>
 
              <!--dock-->  
-                <div class="w3-bar bottom-bar dark-border-top" style="bottom:0px;">
-                   <a class="w3-bar-item w3-btn" onclick="upload();"><i class="fa fa-upload w3-text-white"></i></a>
-                   <a class="w3-bar-item w3-btn" onclick="filemanager();" title="Open File manager"><i class="fa fa-folder w3-text-white" id="f-icon"></i></a>
-                   <a class=""><input class="w3-small dark-border w3-round search" id="delta" type="text" placeholder="File Search.." title="Search a file.." onkeyup="search_file();"></a>
+                <div class="w3-bar bottom-bar dark-border-top dark-border-bottom" style="bottom:0px;">
+                    <a class="w3-bar-item w3-btn" onclick="upload();"><i class="fa fa-upload w3-text-white"></i></a>
+                    <a class="w3-bar-item w3-btn" onclick="filemanager();" title="Open File manager"><i class="fa fa-folder w3-text-white" id="f-icon"></i></a>
+                    <a class=""><input class="w3-small dark-border w3-round search" id="delta" type="text" placeholder="File Search.." title="Search a file.." onkeyup="search_file();"></a>
                </div>
             </div>
             <!--right panel-->
