@@ -203,7 +203,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
       }
       #divider {
         left: 50%; /* Same as left component width */
-        width: 30px;
+        width: 150px;
         background-color: transparent; 
         transition: 0.6s;
       }
@@ -443,7 +443,7 @@ foreach($it as $path) {
                </div>
             </div>
             <!--right panel-->
-            <div class="split-pane-divider" id="divider"></div>
+            <div class="split-pane-divider" id="divider" onmouseover="this.style.width='20%'" onmouseleave="this.style.width='30px'"></div>
             <div class="split-pane-component" id="right-component">
             <!-- splash screen-->
              <div id="splash">
