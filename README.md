@@ -1,4 +1,5 @@
 # Splice
+[![Coveralls bitbucket](https://img.shields.io/coveralls/bitbucket/pyKLIP/pyklip.svg)]() [![AppVeyor](https://img.shields.io/appveyor/ci/gruntjs/grunt.svg)]() [![PHP from Packagist](https://img.shields.io/packagist/php-v/symfony/symfony.svg)]()
 
 [![splice](https://quadroloop.github.io/bobaux/splice-app.PNG)]()
 
