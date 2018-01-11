@@ -18,11 +18,12 @@
  - Configurable Themes, Modes
  - Easy to setup and Migrate
  - lightweight, Single file.
- 
+ - Perfect Scroll Bar added for nicer scrolling UX
+
  > features to add in version 0.1
  - Diff Viewer using __Ace-diff__
  - Full offline support
- 
+
 
 # Project Status
   > Current Version : __Version 0__
@@ -35,5 +36,5 @@ Splice uses the following awesome projects to function properly.
 | Project | Description |
 | ------ | ------ |
 | Ace Editor | Awesome Browser Editor. |
+| Perfect Scrollbar | Awesome JavaScript custom scrollbar library |
 | JQuery | No, intros Needed  |
-
