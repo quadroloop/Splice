@@ -27,6 +27,8 @@
 
 # Project Status
   > Current Version : __Version 0__
+  > Scroll bar working on firefox,
+  > bugs found on file saving.
   > Splice is currently usable, but a lot more development should be done for it to reach 0.1, it is still a bit unstable, at the moment. but i'll work it out eventually.still requires internet connection to load important components.
 
 ### Tech
