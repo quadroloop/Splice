@@ -444,7 +444,7 @@ foreach($it as $path) {
                </div>
             </div>
             <!--right panel-->
-            <div class="split-pane-divider" id="divider" onmouseover="this.style.width='80%'" onmouseleave="this.style.width='30px'"></div>
+            <div class="split-pane-divider" id="divider" onmouseover="this.style.width='40%'" onmouseleave="this.style.width='30px'"></div>
             <div class="split-pane-component" id="right-component">
             <!-- splash screen-->
              <div id="splash">
