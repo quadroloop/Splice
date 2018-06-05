@@ -210,7 +210,6 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 
        #divider:hover {
        background-color: rgba(8, 125, 149, 0.54);
-       width: 100%;
        }
 
       #right-component {
@@ -445,7 +444,7 @@ foreach($it as $path) {
                </div>
             </div>
             <!--right panel-->
-            <div class="split-pane-divider" id="divider" onmouseover="this.style.width='20%'" onmouseleave="this.style.width='30px'"></div>
+            <div class="split-pane-divider" id="divider" onmouseover="this.style.width='100%'" onmouseleave="this.style.width='30px'"></div>
             <div class="split-pane-component" id="right-component">
             <!-- splash screen-->
              <div id="splash">
