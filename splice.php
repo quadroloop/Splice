@@ -751,11 +751,6 @@ function ui_switch() {
   }
 }
 
-// output control
-/*
-var save_status = 0;
-localStorage.setItem('save_data',save_status);
-*/
 
 function delete_file() {
 
