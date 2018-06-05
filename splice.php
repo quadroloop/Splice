@@ -210,6 +210,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 
        #divider:hover {
        background-color: rgba(8, 125, 149, 0.54);
+       width: 100%;
        }
 
       #right-component {
