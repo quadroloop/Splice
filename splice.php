@@ -824,7 +824,6 @@ $(document).ready( function() {
     $( '#container' ).html( '<ul class="filetree start"><li class="wait">' + 'Generating Tree...' + '<li></ul>' );
 
     getfilelist( $('#container') , './' );
-
     function getfilelist( cont, root ) {
 
         $( cont ).addClass( 'wait' );
