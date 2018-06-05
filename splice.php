@@ -203,7 +203,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
       }
       #divider {
         left: 50%; /* Same as left component width */
-        width: 150px;
+        width: 90%;
         background-color: transparent;
         transition: 0.6s;
       }
