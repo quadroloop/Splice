@@ -1136,7 +1136,6 @@ function save() {
     document.body.removeChild(event.target);
 }
 
-
 // window close
 
 window.addEventListener('beforeunload', function(event) {
