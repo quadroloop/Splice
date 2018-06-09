@@ -800,6 +800,8 @@ function savefile() {
     var file = "filename="+file_name_to_save+"&file_content="+encodeURIComponent(editor.getValue());
     http.send(file);
     // ui show that the file is saved.
+     var indicator = document.getElementById('findicator');
+    indicator.classList.add('w3-text-light-green');
   }
 }
 
