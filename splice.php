@@ -803,8 +803,8 @@ function savefile() {
     var file = "filename="+file_name_to_save+"&file_content="+encodeURIComponent(editor.getValue());
     http.send(file);
     // ui show that the file is saved.
-    
     indicator.classList.add('w3-text-green');
+    refresh_output();
   }
 }
 
