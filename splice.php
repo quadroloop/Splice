@@ -792,15 +792,16 @@ function fstats() {
 
 function savefile() {
    var file_name_to_save = document.getElementById("cfile").value;
-   if(file_name_to_save == [ ]){
-    swal({timer: 900, showConfirmButton: false, title:'Error!',text:'No file name!',type:'error'})}else{
+    var indicator = document.getElementById('findicator');
+   if(file_name_to_save){
+     indicator.classList.add('w3-text-red');
 	 var http = new XMLHttpRequest();
     http.open("POST", "splice.php", true);
     http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     var file = "filename="+file_name_to_save+"&file_content="+encodeURIComponent(editor.getValue());
     http.send(file);
     // ui show that the file is saved.
-     var indicator = document.getElementById('findicator');
+    
     indicator.classList.add('w3-text-light-green');
   }
 }
