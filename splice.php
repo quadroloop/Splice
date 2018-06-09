@@ -371,7 +371,7 @@ function loadfile_search() {
                 <a class="w3-text-blue w3-bar-item w3-right w3-btn" title="File Status"><i id="findicator" class="fa fa-circle"></i></a>
             </div>
              <!--editor-->
-               <div id="editor" onkeyup="alert('what');"></div>
+               <div id="editor" onkeyup="fstats();"></div>
              <!--filemanager-->
              <div id="file_manager">
                  <div class="w3-bar w3-small w3-text-grey dark-border-bottom">
