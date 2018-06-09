@@ -785,6 +785,11 @@ function delete_file() {
 
 // Saving a file
 
+function fstats() {
+   var indicator = document.getElementById('findicator');
+   findicator.class = 'w3-text-amber';
+}
+
 function savefile() {
    var file_name_to_save = document.getElementById("cfile").value;
    if(file_name_to_save == [ ]){
