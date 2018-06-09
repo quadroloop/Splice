@@ -368,7 +368,7 @@ function loadfile_search() {
                 <a onclick="menu();" class="w3-text-white w3-bar-item w3-right w3-btn" title="open menu.."><i class="fa fa-bars w3-text-white"></i></a>
                 <a onclick="settings();" class="w3-text-white w3-bar-item w3-right w3-btn" title="open settings.."><i class="fa fa-gear w3-text-white"></i></a>
                 <a onclick="code_editor();" class="w3-text-white w3-bar-item w3-right w3-btn" title="open source editor.."><i class="fa fa-hashtag w3-text-white"></i></a>
-                <a class="w3-text-blue w3-bar-item w3-right w3-btn" title="File Status"><i id="findicator" class="fa fa-circle w3-text-white"></i></a>
+                <a class="w3-text-blue w3-bar-item w3-right w3-btn" title="File Status"><i id="findicator" class="fa fa-circle"></i></a>
             </div>
              <!--editor-->
                <div id="editor"></div>
