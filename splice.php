@@ -795,7 +795,7 @@ function savefile() {
     var indicator = document.getElementById('findicator');
    if(file_name_to_save){
     // if nothing is to save
-    indicator.classList.add('w3-text-green');
+    indicator.classList.add('w3-text-red');
    }else{
 	 var http = new XMLHttpRequest();
     http.open("POST", "splice.php", true);
