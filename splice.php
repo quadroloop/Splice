@@ -787,7 +787,7 @@ function delete_file() {
 
 function fstats() {
    var indicator = document.getElementById('findicator');
-   findicator.class = 'w3-text-amber';
+    indicator.class = 'fa fa-circle w3-text-amber';
 }
 
 function savefile() {
