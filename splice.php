@@ -793,7 +793,7 @@ function fstats() {
 function savefile() {
    var file_name_to_save = document.getElementById("cfile").value;
     var indicator = document.getElementById('findicator');
-   if(file_name_to_save){
+   if(!file_name_to_save){
     // if nothing is to save
     indicator.classList.add('w3-text-red');
    }else{
