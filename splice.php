@@ -794,7 +794,9 @@ function savefile() {
    var file_name_to_save = document.getElementById("cfile").value;
     var indicator = document.getElementById('findicator');
    if(file_name_to_save){
-     indicator.classList.add('w3-text-red');
+    // if nothing is to save
+    indicator.classList.add('w3-text-green');
+   }else{
 	 var http = new XMLHttpRequest();
     http.open("POST", "splice.php", true);
     http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -802,7 +804,7 @@ function savefile() {
     http.send(file);
     // ui show that the file is saved.
     
-    indicator.classList.add('w3-text-light-green');
+    indicator.classList.add('w3-text-green');
   }
 }
 
