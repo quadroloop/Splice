@@ -49,7 +49,6 @@ file_put_contents("splice_dir_mapper.php",$tree_base_code);
  }
    exit();
  }
-
 ?>
 <!DOCTYPE html>
 <html>
