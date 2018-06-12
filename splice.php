@@ -277,7 +277,6 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
     .dark-border-top{border-top:1px solid #3A3A3A!important}.dark-border-bottom{border-bottom:1px solid #3A3A3A!important}
     .dark-border-left{border-left:1px solid #3A3A3A!important}.dark-border-right{border-right:1px solid #3A3A3A!important}
 
-
 .tool_state {
     margin:10px;
     float: left;
