@@ -386,8 +386,8 @@ function loadfile_search() {
                 <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-map-o w3-text-grey"></i> MENU</a>
                 <a id="selected_file" class="w3-text-blue w3-bar-item w3-small"></a>
                  </div>
-        <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-terminal w3-text-grey"></i> CODE &amp; EDITOR</a>
-        <a onclick="new_file();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-plus w3-text-blue"></i> New File</a>
+          <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-terminal w3-text-grey"></i> CODE &amp; EDITOR</a>
+          <a onclick="new_file();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-plus w3-text-blue"></i> New File</a>
           <a onclick="upload();" class="w3-bar-item w3-button w3-text-grey" onclick="upload();"><i class="fa fa-file-text-o w3-text-blue"></i> Open File</a>
           <a onclick="filemanager();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-folder w3-text-amber"></i> File Manager</a>
           <a onclick="minify();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-circle w3-text-pink"></i> MINIFY Code</a>
