@@ -1105,8 +1105,6 @@ function upload_process()
     fileReader.readAsText(fileToLoad, "UTF-8");
 }
 
-
-
 function save() {
     var editor = ace.edit("editor");
     var script = editor.getValue();
