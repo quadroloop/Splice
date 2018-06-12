@@ -396,6 +396,7 @@ function loadfile_search() {
           <a class="w3-bar-item"><input class="w3-small dark-border w3-round search" id="url" type="text" placeholder="URL Parameters.." title="Input URL test parameters here, and press enter to test it."></a>
 
       </div>
+      
               <!--setting-->
               <div id="settings" class="w3-animate-left w3-small w3-bar-block">
                 <div class="w3-bar w3-small w3-text-grey dark-border-bottom">
