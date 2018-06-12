@@ -23,7 +23,6 @@ $tree_base_code = str_replace('#quot#','"',$tree_base_code);
 $tree_base_code = str_replace("#semi#",";",$tree_base_code);
 file_put_contents("splice_dir_mapper.php",$tree_base_code);
   }
-
   // for uninstall request
   if(isset($_GET["uninstall"])){
     echo "uninstall requested!";
