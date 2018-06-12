@@ -316,10 +316,8 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
     position: absolute;
 }
  }
-
-
-
         </style>
+        
         <script>
             $(function() {
                 $('div.split-pane').splitPane();
