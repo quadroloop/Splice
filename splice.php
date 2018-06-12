@@ -346,7 +346,7 @@ function loadfile_search() {
 }
         </script>
     </head>
-    
+
     <body id="app-body">
     <!--code holder-->
     <textarea id="code_holder">
@@ -394,9 +394,6 @@ function loadfile_search() {
           <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-wrench w3-text-grey"></i> TOOLS</a>
           <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-sitemap w3-text-blue"></i> Test URL Parameters</a>
           <a class="w3-bar-item"><input class="w3-small dark-border w3-round search" id="url" type="text" placeholder="URL Parameters.." title="Input URL test parameters here, and press enter to test it."></a>
-
-
-
 
       </div>
               <!--setting-->
