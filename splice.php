@@ -317,7 +317,7 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
 }
  }
         </style>
-        
+
         <script>
             $(function() {
                 $('div.split-pane').splitPane();
@@ -1055,9 +1055,7 @@ Vibrant_Ink:["vibrant_ink"]
    theme: 'ace/theme/'+ selected_theme,
    mode: 'ace/mode/'+ set_mode[0]
 })
-
 }
-
 
 function set_editor() {
 swal({
