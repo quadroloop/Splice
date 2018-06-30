@@ -492,6 +492,7 @@ foreach($it as $path) {
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/javascript");
+    editor.setAutoScrollEditorIntoView(true);
     window.onload = function() {
       editor.setValue(document.getElementById("code_holder").value,-1);
     }
