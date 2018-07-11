@@ -407,6 +407,7 @@ function loadfile_search() {
           <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-code-fork w3-text-blue"></i> View Source Logs</a>
           <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-terminal w3-text-grey"></i> CODE &amp; EDITOR</a>
           <a class="w3-bar-item w3-button w3-hover-black w3-text-grey" onclick="set_editor();"><i class="fa fa-cube w3-text-blue"></i> Change Editor Preferences</a>
+          <a class="w3-bar-item w3-button w3-hover-black w3-text-grey" onclick="hot_reload();"><i class="fa fa-bolt w3-text-blue"></i> Connect Hot Reload Device</a>
           <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-hashtag w3-text-grey"></i> ABOUT</a>
           <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-folder-open w3-text-amber"></i> Docs</a>
           <a href="https://github.com/quadroloop/Splice" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-github w3-text-white github-icon"></i> View or Fork on Github</a>
