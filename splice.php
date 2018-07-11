@@ -380,6 +380,7 @@ function loadfile_search() {
 
                  </div>
                  <div id="container" class="w3-text-grey w3-small"> </div>
+                 <div id="new_files" class="w3-text-white"></div>
                </div>
               <!--menu-->
                <div id="menu" class="w3-animate-left w3-small w3-bar-block">

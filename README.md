@@ -5,9 +5,7 @@
 
 > Splice is a __hackable__ in-browser Code Editor based on PHP
 
-  - Edit your Code on the left
-  - See output on the right
-  - that's it. nice and simple.
+- edit your code on the fly!
 
 # Features:
  > Current Features in Version: 0.0
@@ -21,8 +19,8 @@
  - Perfect Scroll Bar added for nicer scrolling UX
 
  > features to add in version 0.1
- - Diff Viewer using __Ace-diff__
  - Full offline support
+ - hot reload for connected devices
 
 
 # Project Status
