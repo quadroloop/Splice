@@ -507,14 +507,7 @@ $(window).bind('keydown', function(event) {
            savefile();
            setTimeout("refresh_output()",200);
            break;
-       case 'f':
-           event.preventDefault();
-           alert('ctrl-f');
-           break;
-       case 'g':
-           event.preventDefault();
-           alert('ctrl-g');
-           break;
+     
        }
    }
 });
