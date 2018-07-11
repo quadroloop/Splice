@@ -15,8 +15,6 @@
  - built-in File manager (beta)
  - Configurable Themes, Modes
  - Easy to setup and Migrate
- - lightweight, Single file.
- - Perfect Scroll Bar added for nicer scrolling UX
 
  > features to add in version 0.1
  - Full offline support
