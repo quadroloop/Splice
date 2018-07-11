@@ -364,9 +364,10 @@ function loadfile_search() {
                 <a onclick="menu();" class="w3-text-white w3-bar-item w3-right w3-btn" title="open menu.."><i class="fa fa-bars w3-text-white"></i></a>
                 <a onclick="settings();" class="w3-text-white w3-bar-item w3-right w3-btn" title="open settings.."><i class="fa fa-gear w3-text-white"></i></a>
                 <a onclick="code_editor();" class="w3-text-white w3-bar-item w3-right w3-btn" title="open source editor.."><i class="fa fa-hashtag w3-text-white"></i></a>
+                <a class="w3-text-white w3-bar-item w3-right w3-btn" title="file status"><i id="indicator" class="fa fa-circle"></i></a>
             </div>
              <!--editor-->
-               <div id="editor"></div>
+               <div id="editor" onkeyup="file_status('edit')"></div>
              <!--filemanager-->
              <div id="file_manager">
                  <div class="w3-bar w3-small w3-text-grey dark-border-bottom">
@@ -774,21 +775,35 @@ function delete_file() {
 
 function savefile() {
    var file_name_to_save = document.getElementById("cfile").value;
-   if(file_name_to_save == [ ]){swal({timer: 900, showConfirmButton: false, title:'Error!',text:'No file name!',type:'error'})}else{
+   if(!file_name_to_save){swal({timer: 900, showConfirmButton: false, title:'Error!',text:'No file name!',type:'error'})}else{
 	 var http = new XMLHttpRequest();
     http.open("POST", "splice.php", true);
     http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     var file = "filename="+file_name_to_save+"&file_content="+encodeURIComponent(editor.getValue());
     http.send(file);
-    swal({
-      timer: 900,
-      type: 'success',
-      showConfirmButton: false,
-      title: 'Success!',
-      text: 'your file is saved successfully!'
-    });
+    file_status('save');
   }
 }
+
+
+// indicate file status
+var keycount = 0;
+function file_status(state) {
+    var indicator = document.getElementById('indicator');
+        switch(state) {
+            case 'save':
+                indicator.style.color = 'lime';
+            break;
+            case 'edit':
+                if(keycount > 10){
+                  indicator.style.color = 'orange';
+                  keycount = 0;
+                }
+                keycount++;
+            break;    
+        }
+}
+
 
 function refresh_output() {
      var file_name_to_save = document.getElementById("cfile").value;
