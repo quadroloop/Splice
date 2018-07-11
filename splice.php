@@ -10,6 +10,7 @@
 ====================================================================================
 */
   //
+ 
   
    //init (file heirarchy)
   if(file_exists('index.html')){$init_file="index.html";}else if (file_exists('index.php')){$init_file="index.php";}else if (file_exists('index.js')){$init_file="index.js";}
@@ -318,6 +319,8 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
         </style>
 
         <script>
+    
+
             $(function() {
                 $('div.split-pane').splitPane();
             });
@@ -503,6 +506,7 @@ foreach($it as $path) {
     editor.getSession().setMode("ace/mode/javascript");
     editor.setAutoScrollEditorIntoView(true);
     window.onload = function() {
+            // move to mobile site
       editor.setValue(document.getElementById("code_holder").value,-1);
     }
 </script>
