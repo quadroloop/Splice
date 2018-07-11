@@ -9,7 +9,8 @@
 |#|      |_|                  |#| By Bryce Mercines 2017 | github.com/quadroloop |#|
 ====================================================================================
 */
-  //
+  //init hotreload
+  file_put_contents('./splice-src/fission.io', '0');
  
   
    //init (file heirarchy)
@@ -794,6 +795,8 @@ function savefile() {
     var file = "filename="+file_name_to_save+"&file_content="+encodeURIComponent(editor.getValue());
     http.send(file);
     file_status('save');
+    $.get( "splice.fission.php?data");
+
   }
 }
 
