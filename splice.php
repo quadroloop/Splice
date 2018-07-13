@@ -383,10 +383,22 @@ function loadfile_search() {
                  <a title="Delete Selected file." class="dark-border w3-round w3-padding-small w3-text-white w3-red w3-btn tool_state" onclick="delete_file();"><i class="fa fa-trash w3-text-white"></i> Delete</a>
                  <a title="Add Folder" class="dark-border w3-round w3-padding-small w3-text-white w3-blue w3-btn tool_state" onclick="add_fm();"><i class="fa fa-plus w3-text-white"></i></a>
 
-
+                       <!-- new files -->
                  </div>
+                  <div id="new_files" class="w3-text-white w3-small w3-padding w3-round w3-margin w3-border w3-border-dark-grey">
+                <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-file-text-o w3-text-grey"></i> NEW FILES</a>
+                  <br>
+                  <br>
+                  <p>hahahaa</p>
+                  <p>hahahaa</p>
+                  <p>hahahaa</p>
+                  <p>hahahaa</p>
+                  <p>hahahaa</p>
+                  
+                  <p>hahahaa</p>
+
+                  </div>
                  <div id="container" class="w3-text-grey w3-small"> </div>
-                 <div id="new_files" class="w3-text-white"></div>
                </div>
               <!--menu-->
                <div id="menu" class="w3-animate-left w3-small w3-bar-block">
@@ -626,7 +638,7 @@ function search_file() {
         input = document.getElementById("delta");
     var threader = document.getElementById("results");
     var endres = document.getElementById("no_matches");
-    if(input.value == [ ] ) {
+    if(!input.value) {
        document.getElementById(capp).style.display = "block";
       threader.style.display = "none";
     }else{
@@ -714,7 +726,7 @@ function file_bind() {
 var urx = document.getElementById("url");
      urx.addEventListener("keydown", function (e) {
       if (e.keyCode === 13) {
-        if ( urx.value == [     ] ) {
+        if (!urx.value) {
           swal({type: "error", showConfirmButton: false, timer: 1500, title: "Error!",text: "empty parameters!"})
         }else{
        var y =document.getElementById("cfile").value;
@@ -758,7 +770,7 @@ function delete_file() {
 
  var file_path = document.getElementById("selected_file").innerHTML;
   var abs_path = file_path.replace("File:  ","");
-  if(abs_path == [ ]) {
+  if(!abs_path) {
     swal({
       type: 'error',
       showConfirmButton: false,
@@ -1120,7 +1132,7 @@ swal({
 // File functions
 
 function file_chk() {
-  if ( file_holder.value == [ ] ){
+  if (!file_holder.value){
     setTimeout("file_chk();",200)
   }else{
     // do nothing
