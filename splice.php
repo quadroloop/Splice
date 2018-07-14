@@ -316,6 +316,16 @@ https://raw.github.com/shagstrom/split-pane/master/LICENSE
     padding: 80px 0 60px 0;
     position: absolute;
 }
+ 
+ #new_files {
+    border: 1px #333 solid;
+    border-radius: 5px;
+    transition: 1.2s;
+ }
+ #new_files:hover {
+    border: 1px lightblue solid;
+    border-radius: 5px;
+    transition: 0.5s;
  }
         </style>
 
@@ -385,19 +395,14 @@ function loadfile_search() {
 
                        <!-- new files -->
                  </div>
-                  <div id="new_files" class="w3-text-white w3-small w3-padding w3-round w3-margin w3-border w3-border-dark-grey">
+                 
+                 <!--  <div id="new_files" class="w3-text-white w3-small w3-padding w3-margin">
                 <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-file-text-o w3-text-grey"></i> NEW FILES</a>
                   <br>
                   <br>
-                  <p>hahahaa</p>
-                  <p>hahahaa</p>
-                  <p>hahahaa</p>
-                  <p>hahahaa</p>
-                  <p>hahahaa</p>
-                  
-                  <p>hahahaa</p>
+                  <a class="w3-text-white w3-text-hover-black w3-bar-item"><i class="fa fa-file"></i> New File</a>
+                  </div> -->
 
-                  </div>
                  <div id="container" class="w3-text-grey w3-small"> </div>
                </div>
               <!--menu-->
@@ -407,10 +412,10 @@ function loadfile_search() {
                 <a id="selected_file" class="w3-text-blue w3-bar-item w3-small"></a>
                  </div>
           <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-terminal w3-text-grey"></i> CODE &amp; EDITOR</a>
-          <a onclick="new_file();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-plus w3-text-blue"></i> New File</a>
-          <a onclick="upload();" class="w3-bar-item w3-button w3-text-grey" onclick="upload();"><i class="fa fa-file-text-o w3-text-blue"></i> Open File</a>
-          <a onclick="filemanager();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-folder w3-text-amber"></i> File Manager</a>
-          <a onclick="minify();" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-circle w3-text-pink"></i> MINIFY Code</a>
+          <a onclick="new_file();" class="w3-bar-item w3-button w3-hover-black w3-text-grey"><i class="fa fa-plus w3-text-blue"></i> New File</a>
+          <a onclick="upload();" class="w3-bar-item w3-button  w3-hover-black  w3-text-grey" onclick="upload();"><i class="fa fa-file-text-o w3-text-blue"></i> Open File</a>
+          <a onclick="filemanager();" class="w3-bar-item w3-button  w3-hover-black  w3-text-grey"><i class="fa fa-folder w3-text-amber"></i> File Manager</a>
+          <a onclick="minify();" class="w3-bar-item w3-button  w3-hover-black  w3-text-grey"><i class="fa fa-circle w3-text-pink"></i> MINIFY Code</a>
           <a class="dark-border w3-round w3-padding-small w3-text-grey tool_state"><i class="fa fa-wrench w3-text-grey"></i> TOOLS</a>
           <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-sitemap w3-text-blue"></i> Test URL Parameters</a>
           <a class="w3-bar-item"><input class="w3-small dark-border w3-round search" id="url" type="text" placeholder="URL Parameters.." title="Input URL test parameters here, and press enter to test it."></a>
